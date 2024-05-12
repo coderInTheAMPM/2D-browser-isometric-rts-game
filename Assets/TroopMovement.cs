@@ -10,7 +10,7 @@ public class TroopMovement : MonoBehaviour
     public NavMeshAgent agent;
 
     // public Tilemap groundTilemap;
-    
+
     public float deltaDistanceFromTarget;
 
     private Vector3 destination;

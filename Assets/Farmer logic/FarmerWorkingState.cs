@@ -6,7 +6,7 @@ public class FarmerWorkingState : IFarmerState
 
     public void OnEnter(Farmer context)
     {
-        Debug.Log("radim");
+        //Debug.Log("radim");
         time = 0;
     }
 

@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class BuildingClicker : MonoBehaviour
 {
-    public Tilemap buildingTilemap;
+    /*public Tilemap buildingTilemap;
     public LayerMask buildingLayerMask;
 
     void Update()
@@ -30,13 +30,13 @@ public class BuildingClicker : MonoBehaviour
         if (clickedTile == null)
             return;
 
-        Debug.Log(clickedTile.name);
+        Debug.Log(clickedTile.name);*/
 
-        /*var hit = Physics2D.OverlapPoint(mouseClickPositionWorld, buildingLayerMask);
+    /*var hit = Physics2D.OverlapPoint(mouseClickPositionWorld, buildingLayerMask);
 
-        if (hit == null)
-            return;
+    if (hit == null)
+        return;
 
-        Debug.Log(hit.gameObject);*/
-    }
+    Debug.Log(hit.gameObject);
+}*/
 }

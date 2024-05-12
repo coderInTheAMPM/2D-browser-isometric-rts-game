@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Buildings
   - 
   - 
-  - 
-  - 
+  - Selectable
+  - Selectable/Troop
+  - Selectable/Building
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 1528179539
+    locked: 0
+  - name: Buldings level 1
+    uniqueID: 4123041715
     locked: 0
   - name: Buildings
     uniqueID: 3841561211

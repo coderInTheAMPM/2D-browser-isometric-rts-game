@@ -6,7 +6,7 @@ public class FarmerStashingState : IFarmerState
 
     public void OnEnter(Farmer context)
     {
-        Debug.Log("skladistim");
+        //Debug.Log("skladistim");
         time = 0;
     }
 

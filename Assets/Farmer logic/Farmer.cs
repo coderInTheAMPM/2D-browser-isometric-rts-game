@@ -13,6 +13,7 @@ public class Farmer : MonoBehaviour
 
     public Vector3 destination;
     private IFarmerState farmerState;
+    public string farmerStateString = "";
 
     public readonly FarmerWorkingState farmerWorkingState = new FarmerWorkingState();
     public readonly FarmerStashingState farmerStashingState = new FarmerStashingState();
@@ -35,16 +36,7 @@ public class Farmer : MonoBehaviour
     {
         farmerState = newState;
         farmerState.OnEnter(this);
-    }
-
-    public void WaitForSeconds(int seconds)
-    {
-        StartCoroutine(WaitForSecondsCoroutine(seconds));
-    }
-
-    private IEnumerator WaitForSecondsCoroutine(int seconds)
-    {
-        yield return new WaitForSeconds(seconds);
+        farmerStateString = farmerState.ToString();
     }
 
     public void GoToDestination()
