@@ -19,9 +19,7 @@ public class Granary : Building
         while(true)
         {
             yield return new WaitForSeconds(3);
-            food--;
+            PlayerInventory.instance.food--;
         }
     }
-
-    public int food;
 }
