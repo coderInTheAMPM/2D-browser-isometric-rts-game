@@ -1,12 +1,15 @@
 using TMPro;
 using UnityEngine;
 
-public class GranaryGUI : MonoBehaviour
+namespace PavleM.RDI.RTS
 {
-    [SerializeField] private TextMeshProUGUI foodAmountText;
-
-    private void FixedUpdate()
+    public class GranaryGUI : MonoBehaviour
     {
-        foodAmountText.text = PlayerInventory.instance.food.ToString();
+        [SerializeField] private TextMeshProUGUI foodAmountText;
+
+        private void FixedUpdate()
+        {
+            foodAmountText.text = PlayerInventory.instance.food.ToString();
+        }
     }
 }

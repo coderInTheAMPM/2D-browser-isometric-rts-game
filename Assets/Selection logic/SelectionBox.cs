@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace PavleM.SI.PrebivalisteS3
+namespace PavleM.RDI.RTS
 {
     public class SelectionBox
     {

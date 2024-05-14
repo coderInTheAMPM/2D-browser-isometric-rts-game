@@ -1,12 +1,15 @@
 using TMPro;
 using UnityEngine;
 
-public class StockpileGUI : MonoBehaviour
+namespace PavleM.RDI.RTS
 {
-    [SerializeField] private TextMeshProUGUI woodAmountText;
-
-    private void FixedUpdate()
+    public class StockpileGUI : MonoBehaviour
     {
-        woodAmountText.text = PlayerInventory.instance.wood.ToString();
+        [SerializeField] private TextMeshProUGUI woodAmountText;
+
+        private void FixedUpdate()
+        {
+            woodAmountText.text = PlayerInventory.instance.wood.ToString();
+        }
     }
 }

@@ -1,12 +1,15 @@
 using TMPro;
 using UnityEngine;
 
-public class ArmoryGUI : MonoBehaviour
+namespace PavleM.RDI.RTS
 {
-    [SerializeField] private TextMeshProUGUI maceAmountText;
-
-    private void FixedUpdate()
+    public class ArmoryGUI : MonoBehaviour
     {
-        maceAmountText.text = PlayerInventory.instance.maces.ToString();
+        [SerializeField] private TextMeshProUGUI maceAmountText;
+
+        private void FixedUpdate()
+        {
+            maceAmountText.text = PlayerInventory.instance.maces.ToString();
+        }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PavleM.SI.PrebivalisteS3
+namespace PavleM.RDI.RTS
 {
     public class SelectionRay
     {

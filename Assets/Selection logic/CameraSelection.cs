@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace PavleM.SI.PrebivalisteS3
+namespace PavleM.RDI.RTS
 {
     public class CameraSelection : MonoBehaviour
     {
@@ -27,13 +27,13 @@ namespace PavleM.SI.PrebivalisteS3
         public readonly BuildingSelectionContainer buildingSelectionContainer = new BuildingSelectionContainer();
         #endregion
 
+        public RectTransform hotbarTransform; // To detect clicks on it
+
         public void SetSelectionContainer(SelectionContainer selectionContainer)
         {
             currentSelectionContainer?.OnContainerExit(this);
             currentSelectionContainer = selectionContainer;
             currentSelectionContainer.OnContainerEnter(this);
-
-            Debug.Log(currentSelectionContainer.ToString());
         }
 
         private void Start()
@@ -49,7 +49,7 @@ namespace PavleM.SI.PrebivalisteS3
 
         private void Update()
         {
-            if (HasClickStartedOnUI())
+            if (IsLeftClickUpOrDown() && HasClickedOnHotbar())
                 return;
 
             if (IsLeftClickDown())
@@ -67,9 +67,27 @@ namespace PavleM.SI.PrebivalisteS3
             selectionBox.UpdateGFX(startClickPosition: startClickPosition);
         }
 
-        private bool HasClickStartedOnUI()
-            => (EventSystem.current.currentSelectedGameObject != null);
-            // EventSystem prati događaje klikova na UI, !=null -> klik na UI
+        /*private bool IsMouseOverUI() // Beskorisno jer uvek klikće na UI zbog selectionBox GFX
+            => (EventSystem.current.IsPointerOverGameObject());*/
+
+        private bool IsLeftClickUpOrDown()
+            => IsLeftClickDown() || IsLeftClickUp();
+
+        private bool HasClickedOnHotbar()
+        {
+            Vector2 mousePosition = Input.mousePosition;
+
+            Vector2 localMousePositionToHotbar;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(hotbarTransform, 
+                                                                    mousePosition, 
+                                                                    null, 
+                                                                    out localMousePositionToHotbar);
+
+            if (RectTransformUtility.RectangleContainsScreenPoint(hotbarTransform, mousePosition))
+                return true;
+
+            return false;
+        }
 
         private bool IsLeftClickDown()
             => Input.GetMouseButtonDown(0);
