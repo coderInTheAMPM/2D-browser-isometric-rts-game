@@ -11,14 +11,14 @@ namespace PavleM.SI.PrebivalisteS3
 
         public void OnSelect()
         {
-            //GameManager.instance.ShowHotbar();
-            hotbarGUI.SetActive(true);
+            UIManager.instance.SetHotbarGUI(this);
+            //hotbarGUI.SetActive(true);
         }
 
         public void OnDeselect()
         {
-            //GameManager.instance.HideHotbar();
-            hotbarGUI.SetActive(false);
+            UIManager.instance.UnsetHotbarGUI(this);
+            //hotbarGUI.SetActive(false);
         }
     }
 }

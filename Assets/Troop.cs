@@ -25,7 +25,7 @@ namespace PavleM.SI.PrebivalisteS3
 
         /*public TroopMovement movement;*/
         /*public new TroopAnimation animation;*/
-        public HealthBar healthBar;
+        //public HealthBar healthBar;
 
         /*[SerializeField] private float speed = 10;*/
 
@@ -45,7 +45,7 @@ namespace PavleM.SI.PrebivalisteS3
             /*animation = new TroopAnimation(GetComponent<Animator>());*/
 
             troopLayerMask = LayerMask.GetMask("Troop");
-            healthBar = GetComponent<HealthBar>();
+            //healthBar = GetComponent<HealthBar>();
 
             /*SetState(idleState);*/
         }
@@ -58,11 +58,9 @@ namespace PavleM.SI.PrebivalisteS3
         }*/
 
         // Logika prikazivanja ikonice ove trupe u hotbaru treba da bude zavisna od sadržaja u selection containeru
-        public void OnSelect() 
-            => healthBar.Show();
+        public void OnSelect() { }
 
-        public void OnDeselect()
-            => healthBar.Hide();
+        public void OnDeselect() { }
 
         /// FixedUpdate umesto Update jer ne mora baš svaki frame
         /*private void FixedUpdate() 

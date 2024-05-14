@@ -7,6 +7,7 @@ public class FarmerStashingState : IFarmerState
     public void OnEnter(Farmer context)
     {
         //Debug.Log("skladistim");
+        context.workingIndicator.SetActive(true);
         time = 0;
     }
 
@@ -16,6 +17,7 @@ public class FarmerStashingState : IFarmerState
 
         if (time > 3) // Gotov
         {
+            context.workingIndicator.SetActive(false);
             context.SetFarmerDestination(context.farmLocation.position);
             context.SetFarmerState(context.farmerWalkingState);
         }

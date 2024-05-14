@@ -7,6 +7,7 @@ public class FarmerWorkingState : IFarmerState
     public void OnEnter(Farmer context)
     {
         //Debug.Log("radim");
+        context.workingIndicator.SetActive(true);
         time = 0;
     }
 
@@ -16,6 +17,7 @@ public class FarmerWorkingState : IFarmerState
 
         if(time > 3) // Gotov
         {
+            context.workingIndicator.SetActive(false);
             context.SetFarmerDestination(context.stockpileLocation.position);
             context.SetFarmerState(context.farmerWalkingState);
         }

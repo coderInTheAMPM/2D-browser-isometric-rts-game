@@ -11,7 +11,9 @@ namespace PavleM.SI.PrebivalisteS3
 
         public Selectable GetISelectableInRay()
         {
-            Ray ray = CameraSelection.playerCamera.ScreenPointToRay(Input.mousePosition);
+            var mouseClickPositionScreenXY = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+            var ray = Camera.main.ScreenPointToRay(mouseClickPositionScreenXY);
 
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, selectableLayerMask))
             {

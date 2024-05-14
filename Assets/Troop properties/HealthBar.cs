@@ -7,7 +7,7 @@ namespace PavleM.SI.PrebivalisteS3
 {
     public class HealthBar : MonoBehaviour
     {
-        private GameObject healthBarInstance;
+        /*private GameObject healthBarInstance;
         public Transform healthBarContainer;
 
         public bool IsVisible
@@ -15,12 +15,12 @@ namespace PavleM.SI.PrebivalisteS3
 
         private float offsetFromTroop = 4; // Kolko je pomeren na gore u odnosu na poziciju trupe
 
-        /*static HealthBar() // možda staviti ovo kao non monobeh kao i druge propertye
+        *//*static HealthBar() // možda staviti ovo kao non monobeh kao i druge propertye
          *                   // da bi mogo static constructor, injectujem transform playera
          *                   // i pozivam health bar update unutar playera
         {
             healthBarContainer = GameObject.Find("Health bar container").transform;
-        }*/
+        }*//*
 
         private void Awake()
         {
@@ -54,5 +54,6 @@ namespace PavleM.SI.PrebivalisteS3
 
         public void Hide()
             => healthBarInstance.SetActive(false);
+    */
     }
 }

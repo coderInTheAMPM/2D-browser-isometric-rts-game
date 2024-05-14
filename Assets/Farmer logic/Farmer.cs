@@ -19,6 +19,8 @@ public class Farmer : MonoBehaviour
     public readonly FarmerStashingState farmerStashingState = new FarmerStashingState();
     public readonly FarmerWalkingState farmerWalkingState = new FarmerWalkingState();
 
+    public GameObject workingIndicator; // loading gif
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();

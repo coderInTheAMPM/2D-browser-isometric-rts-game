@@ -32,6 +32,8 @@ namespace PavleM.SI.PrebivalisteS3
             currentSelectionContainer?.OnContainerExit(this);
             currentSelectionContainer = selectionContainer;
             currentSelectionContainer.OnContainerEnter(this);
+
+            Debug.Log(currentSelectionContainer.ToString());
         }
 
         private void Start()
