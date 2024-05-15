@@ -20,6 +20,9 @@ namespace PavleM.RDI.RTS
 
         private IWorkerState workerState;
 
+        public AudioSource workingSound;
+        public AudioSource stashingSound;
+
         #region Cached states
         public readonly WorkerWorkingState workerWorkingState = new WorkerWorkingState();
         public readonly WorkerStashingState workerStashingState = new WorkerStashingState();

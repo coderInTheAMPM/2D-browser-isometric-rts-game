@@ -10,6 +10,7 @@ namespace PavleM.RDI.RTS
         {
             context.workingIndicator.SetActive(true);
             time = 0;
+            context.workingSound.Play();
         }
 
         public void Update(Worker context)
@@ -25,6 +26,7 @@ namespace PavleM.RDI.RTS
 
         private void OnWorkFinished(Worker context)
         {
+            context.workingSound.Stop();
             context.workingIndicator.SetActive(false);
             context.SetDestination(context.stockpileLocation.position);
             context.SetWorkerState(context.workerWalkingState);

@@ -10,6 +10,7 @@ namespace PavleM.RDI.RTS
         {
             context.workingIndicator.SetActive(true);
             time = 0;
+            context.stashingSound.Play();
         }
 
         public void Update(Worker context)
