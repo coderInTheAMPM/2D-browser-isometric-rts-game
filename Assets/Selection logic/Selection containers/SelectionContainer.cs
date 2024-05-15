@@ -7,7 +7,7 @@ namespace PavleM.RDI.RTS
     {
         public static List<Selectable> selected { get; private set; } = new List<Selectable>();
 
-        public void OnContainerEnter(CameraSelection context)
+        public virtual void OnContainerEnter(CameraSelection context)
             => SelectEverything();
 
         private void SelectEverything()

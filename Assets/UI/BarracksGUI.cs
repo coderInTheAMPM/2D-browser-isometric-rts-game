@@ -10,6 +10,9 @@ namespace PavleM.RDI.RTS
 
         public Transform recruitSpawnLocation;
 
+        public GameObject troopPrefab;
+        public Transform troopsContainer;
+
         // TODO: čitati cenu iz baze podataka ili nešto
 
         private void Awake()
@@ -23,11 +26,14 @@ namespace PavleM.RDI.RTS
             {
                 PlayerInventory.instance.gold -= 20;
                 PlayerInventory.instance.maces -= 1;
-                Debug.Log("Recruited troop");
+
+                var troop = GameObject.Instantiate(troopPrefab);
+                troop.transform.position = recruitSpawnLocation.position;
+                troop.transform.SetParent(troopsContainer);
             }
             else
             {
-                Debug.Log("Can't recruit");
+                Debug.Log("Can't recruit"); // dodaj audio
             }
         }
     }

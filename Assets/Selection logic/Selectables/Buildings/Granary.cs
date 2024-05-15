@@ -12,7 +12,9 @@ namespace PavleM.RDI.RTS
             => instance = this;
         #endregion
 
-        private void Start()
+        /*public float foodLoweringPercentage = 1;
+*/
+        /*private void Start()
             => StartCoroutine(FoodLowering());
 
         private IEnumerator FoodLowering()
@@ -22,6 +24,6 @@ namespace PavleM.RDI.RTS
                 yield return new WaitForSeconds(3);
                 PlayerInventory.instance.food--;
             }
-        }
+        }*/
     }
 }

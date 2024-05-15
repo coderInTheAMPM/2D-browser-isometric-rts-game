@@ -11,16 +11,19 @@ namespace PavleM.RDI.RTS
         private Image boxGFX;
         private Rect boxCollider;
 
+        private RectTransform hotbarTransform; // Za ne crtanje pri klikom na hotbar
+
         private bool IsVisible
         {
             get => boxGFX.enabled;
             set => boxGFX.enabled = value;
         }
 
-        public SelectionBox(RectTransform boxTransform, Image boxGFX)
+        public SelectionBox(RectTransform boxTransform, Image boxGFX, RectTransform hotbarTransform)
         {
             this.boxTransform = boxTransform;
             this.boxGFX = boxGFX;
+            this.hotbarTransform = hotbarTransform;
             boxCollider = new Rect();
         }
         
@@ -32,11 +35,33 @@ namespace PavleM.RDI.RTS
 
         public void UpdateBoxVisibility()
         {
+            if (IsMouseOverHotbar())
+            {
+                IsVisible = false;
+                return;
+            }
+
             if (!IsVisible && IsMouseCurrentlyBeingDragged())
                 IsVisible = true;
 
             if (IsVisible && !IsMouseCurrentlyBeingDragged())
                 IsVisible = false;
+        }
+
+        private bool IsMouseOverHotbar()
+        {
+            Vector2 mousePosition = Input.mousePosition;
+
+            /*Vector2 localMousePositionToHotbar;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(hotbarTransform,
+                                                                    mousePosition,
+                                                                    null,
+                                                                    out localMousePositionToHotbar);*/
+
+            if (RectTransformUtility.RectangleContainsScreenPoint(hotbarTransform, mousePosition))
+                return true;
+
+            return false;
         }
 
         private bool IsMouseCurrentlyBeingDragged()

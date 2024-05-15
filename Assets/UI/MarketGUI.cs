@@ -16,6 +16,9 @@ namespace PavleM.RDI.RTS
         public GameObject buyMenu;
         public GameObject sellMenu;
 
+        public TextMeshProUGUI goldAmountInfoText;
+        public TextMeshProUGUI woodAmountInfoText;
+
         private void Awake()
         {
             buyMenu.SetActive(false);
@@ -30,6 +33,12 @@ namespace PavleM.RDI.RTS
 
             buyMaceButton.onClick.AddListener(TryBuyMace);
             sellWoodButton.onClick.AddListener(TrySellWood);
+        }
+
+        private void Update()
+        {
+            goldAmountInfoText.text = PlayerInventory.instance.gold.ToString();
+            woodAmountInfoText.text = PlayerInventory.instance.wood.ToString();
         }
 
         private void ShowBuyMenu()
@@ -53,7 +62,7 @@ namespace PavleM.RDI.RTS
 
         private void TryBuyMace()
         {
-            if(PlayerInventory.instance.gold > 60)
+            if(PlayerInventory.instance.gold >= 60)
             {
                 PlayerInventory.instance.gold -= 60;
                 PlayerInventory.instance.maces++;
@@ -62,7 +71,7 @@ namespace PavleM.RDI.RTS
 
         private void TrySellWood()
         {
-            if (PlayerInventory.instance.wood > 20)
+            if (PlayerInventory.instance.wood >= 20)
             {
                 PlayerInventory.instance.wood -= 20;
                 PlayerInventory.instance.gold += 10;

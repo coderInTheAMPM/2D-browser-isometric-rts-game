@@ -6,7 +6,7 @@ namespace PavleM.RDI.RTS
     {
         [SerializeField] private float movementTime = 5;
         [SerializeField] private float movementMultiplier = 2;
-        [SerializeField] private float borderThreshold = 15; // Threshold za ivice ekrana
+        [SerializeField] private float borderThreshold = 25; // Threshold za ivice ekrana
 
         [SerializeField] private float zoomAmount = 4;
         [SerializeField] private float minZoomRadius = 5;
@@ -55,13 +55,13 @@ namespace PavleM.RDI.RTS
         }
 
         private bool IsOnLeftBorder()
-            => Input.mousePosition.x < borderThreshold;
+            => (Input.mousePosition.x < borderThreshold) && (Input.mousePosition.x > 0);
         private bool IsOnRightBorder()
-            => Input.mousePosition.x > Screen.width - borderThreshold;
+            => (Input.mousePosition.x > Screen.width - borderThreshold) && (Input.mousePosition.x < Screen.width);
         private bool IsOnBottomBorder()
-            => Input.mousePosition.y < borderThreshold;
+            => (Input.mousePosition.y < borderThreshold) && (Input.mousePosition.y > 0);
         private bool IsOnTopBorder()
-            => Input.mousePosition.y > Screen.height - borderThreshold;
+            => (Input.mousePosition.y > Screen.height - borderThreshold) && (Input.mousePosition.y < Screen.height);
 
         private Vector2 GetKeyboardInput()
             => new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));

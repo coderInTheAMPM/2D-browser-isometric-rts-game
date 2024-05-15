@@ -42,14 +42,15 @@ namespace PavleM.RDI.RTS
 
             selectionRay = new SelectionRay(selectableLayerMask);
             selectionBox = new SelectionBox(boxTransform: GetComponent<RectTransform>(), 
-                                            boxGFX: GetComponent<Image>());
+                                            boxGFX: GetComponent<Image>(),
+                                            hotbarTransform: hotbarTransform);
 
             SetSelectionContainer(emptySelectionContainer);
         }
 
         private void Update()
         {
-            if (IsLeftClickUpOrDown() && HasClickedOnHotbar())
+            if (IsLeftClickUpOrDown() && IsMouseOverHotbar())
                 return;
 
             if (IsLeftClickDown())
@@ -73,15 +74,9 @@ namespace PavleM.RDI.RTS
         private bool IsLeftClickUpOrDown()
             => IsLeftClickDown() || IsLeftClickUp();
 
-        private bool HasClickedOnHotbar()
+        private bool IsMouseOverHotbar()
         {
             Vector2 mousePosition = Input.mousePosition;
-
-            Vector2 localMousePositionToHotbar;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(hotbarTransform, 
-                                                                    mousePosition, 
-                                                                    null, 
-                                                                    out localMousePositionToHotbar);
 
             if (RectTransformUtility.RectangleContainsScreenPoint(hotbarTransform, mousePosition))
                 return true;

@@ -13,14 +13,29 @@ namespace PavleM.RDI.RTS
         #endregion
 
         public GameObject defaultHotbarGUI;
+        private GameObject currentlySelectedBuildingGUI;
 
         private void Start()
             => defaultHotbarGUI.SetActive(true);
 
         public void SetHotbarGUI(Building building)
         {
+            currentlySelectedBuildingGUI?.SetActive(false); // popravka bug-a za pravilan rad default menija
+
             defaultHotbarGUI.SetActive(false);
             building.hotbarGUI.SetActive(true);
+
+            currentlySelectedBuildingGUI = building.hotbarGUI;
+        }
+
+        public void SetHotbarGUI(GameObject GUI)
+        {
+            currentlySelectedBuildingGUI?.SetActive(false);
+
+            defaultHotbarGUI.SetActive(false);
+            GUI.SetActive(true);
+
+            currentlySelectedBuildingGUI = GUI;
         }
 
         public void UnsetHotbarGUI(Building building)
