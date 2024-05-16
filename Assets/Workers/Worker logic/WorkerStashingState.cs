@@ -11,6 +11,11 @@ namespace PavleM.RDI.RTS
             context.workingIndicator.SetActive(true);
             time = 0;
             context.stashingSound.Play();
+
+            if (context.stashItem.Equals("wood"))
+                PlayerInventory.instance.wood += context.stashQuantity;
+            else if (context.stashItem.Equals("food"))
+                PlayerInventory.instance.food += context.stashQuantity;
         }
 
         public void Update(Worker context)
@@ -26,10 +31,7 @@ namespace PavleM.RDI.RTS
 
         private void OnStashingFinished(Worker context)
         {
-            if (context.stashItem.Equals("wood"))
-                PlayerInventory.instance.wood += context.stashQuantity;
-            else if (context.stashItem.Equals("food"))
-                PlayerInventory.instance.food += context.stashQuantity;
+            
 
             context.workingIndicator.SetActive(false);
             context.SetDestination(context.workLocation.position);

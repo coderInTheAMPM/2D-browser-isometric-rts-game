@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace PavleM.RDI.RTS
@@ -12,6 +13,12 @@ namespace PavleM.RDI.RTS
         public GameObject troopPrefab;
         public Transform troopsContainer;
 
+        public TextMeshProUGUI currentAmountOfGoldInfo;
+        public TextMeshProUGUI currentAmountOfMacesInfo;
+
+        public AudioSource troopBuySound;
+        public AudioSource notEnoughResourcesSound;
+
         // TODO: čitati cenu iz baze podataka ili nešto
 
         private void Awake()
@@ -23,6 +30,7 @@ namespace PavleM.RDI.RTS
         {
             if(PlayerInventory.instance.gold >= 20 && PlayerInventory.instance.maces >= 1)
             {
+                troopBuySound.Play();
                 PlayerInventory.instance.gold -= 20;
                 PlayerInventory.instance.maces -= 1;
 
@@ -32,8 +40,14 @@ namespace PavleM.RDI.RTS
             }
             else
             {
-                Debug.Log("Can't recruit"); // dodaj audio
+                notEnoughResourcesSound.Play();
             }
+        }
+
+        private void Update()
+        {
+            currentAmountOfGoldInfo.text = PlayerInventory.instance.gold.ToString();
+            currentAmountOfMacesInfo.text = PlayerInventory.instance.maces.ToString();
         }
     }
 }

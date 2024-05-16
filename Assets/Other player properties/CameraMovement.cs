@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
  
 namespace PavleM.RDI.RTS
 {
@@ -19,7 +20,7 @@ namespace PavleM.RDI.RTS
 
         private void Update()
         {
-            if (!Application.isEditor)
+            /*if (!Application.isEditor)*/
                 UpdateMovement(GetMouseInput());
             UpdateMovement(GetKeyboardInput());
             
@@ -42,26 +43,35 @@ namespace PavleM.RDI.RTS
         {
             Vector2 movementVector = new Vector2();
 
-            if (IsOnLeftBorder())
-                movementVector.x = -1;
-            if (IsOnRightBorder())
-                movementVector.x = 1;
-            if (IsOnBottomBorder())
-                movementVector.y = -1;
-            if (IsOnTopBorder())
-                movementVector.y = 1;
-
+            if(IsMouseInsideGame())
+            {
+                if (IsOnLeftBorder())
+                    movementVector.x = -1;
+                if (IsOnRightBorder())
+                    movementVector.x = 1;
+                if (IsOnBottomBorder())
+                    movementVector.y = -1;
+                if (IsOnTopBorder())
+                    movementVector.y = 1;
+            }
+            
             return movementVector;
         }
 
+        private bool IsMouseInsideGame()
+        {
+            return (Input.mousePosition.x > 0 && Input.mousePosition.x < Screen.width)
+                   && (Input.mousePosition.y > 0 && Input.mousePosition.y < Screen.height);
+        }
+
         private bool IsOnLeftBorder()
-            => (Input.mousePosition.x < borderThreshold) && (Input.mousePosition.x > 0);
+            => (Input.mousePosition.x < borderThreshold);
         private bool IsOnRightBorder()
-            => (Input.mousePosition.x > Screen.width - borderThreshold) && (Input.mousePosition.x < Screen.width);
+            => (Input.mousePosition.x > Screen.width - borderThreshold);
         private bool IsOnBottomBorder()
-            => (Input.mousePosition.y < borderThreshold) && (Input.mousePosition.y > 0);
+            => (Input.mousePosition.y < borderThreshold);
         private bool IsOnTopBorder()
-            => (Input.mousePosition.y > Screen.height - borderThreshold) && (Input.mousePosition.y < Screen.height);
+            => (Input.mousePosition.y > Screen.height - borderThreshold);
 
         private Vector2 GetKeyboardInput()
             => new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));

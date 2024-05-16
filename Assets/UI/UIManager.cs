@@ -29,6 +29,9 @@ namespace PavleM.RDI.RTS
 
         public void SetHotbarGUI(GameObject GUI)
         {
+            if (GUI == null)
+                return;
+
             currentlySelectedBuildingGUI?.SetActive(false);
 
             defaultHotbarGUI.SetActive(false);

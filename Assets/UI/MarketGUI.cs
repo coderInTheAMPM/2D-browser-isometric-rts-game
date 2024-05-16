@@ -19,6 +19,10 @@ namespace PavleM.RDI.RTS
         public TextMeshProUGUI goldAmountInfoText;
         public TextMeshProUGUI woodAmountInfoText;
 
+        public AudioSource buySound;
+        public AudioSource notEnoughWoodSound;
+        public AudioSource notEnoughGoldSound;
+
         private void Awake()
         {
             buyMenu.SetActive(false);
@@ -64,8 +68,13 @@ namespace PavleM.RDI.RTS
         {
             if(PlayerInventory.instance.gold >= 60)
             {
+                buySound.Play();
                 PlayerInventory.instance.gold -= 60;
                 PlayerInventory.instance.maces++;
+            }
+            else
+            {
+                notEnoughGoldSound.Play();
             }
         }
 
@@ -73,8 +82,13 @@ namespace PavleM.RDI.RTS
         {
             if (PlayerInventory.instance.wood >= 20)
             {
+                buySound.Play();
                 PlayerInventory.instance.wood -= 20;
                 PlayerInventory.instance.gold += 10;
+            }
+            else
+            {
+                notEnoughWoodSound.Play();
             }
         }
     }
