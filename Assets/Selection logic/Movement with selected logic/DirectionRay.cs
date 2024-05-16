@@ -51,12 +51,14 @@ namespace PavleM.RDI.RTS
             /*if (!IsDestinationReachable(location.Value))
                 Debug.Log("There is no way!");*/
 
-            var troopsToMove = SelectionContainer.selected.Select(selectable => (Troop)selectable)
-                                                          .ToList();
+            var troopsToMove = SelectionContainer.selected
+                                    .Select(selectable => (Troop)selectable)
+                                    .Where(troop => !troop.isFighting)
+                                    .ToList();
 
             var positions = GetDesiredPositionsOfTroopsForDestination(location.Value, troopsToMove);
 
-            for (int i = 0; i < SelectionContainer.selected.Count(); i++)
+            for (int i = 0; i < troopsToMove.Count(); i++)
                 troopsToMove[i].movement.MoveTo(positions[i]);
         }
 

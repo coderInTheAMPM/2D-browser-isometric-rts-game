@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace PavleM.RDI.RTS
 {
@@ -34,10 +35,16 @@ namespace PavleM.RDI.RTS
                 return;
 
             UpdatePosition();
+            UpdateGFX();
         }
 
         private void UpdatePosition()
             => healthBarInstance.transform.position = CameraSelection.playerCamera.WorldToScreenPoint(transform.position + Vector3.up * offsetFromTroop);
+
+        private void UpdateGFX()
+        {
+            healthBarInstance.GetComponent<Slider>().value = GetComponent<Troop>().health / 100f;
+        }
 
         public void Show()
         {

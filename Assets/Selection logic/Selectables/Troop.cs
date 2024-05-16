@@ -6,7 +6,7 @@ namespace PavleM.RDI.RTS
     [RequireComponent(typeof(HealthBar))]
     public class Troop : MonoBehaviour, Selectable
     {
-        private int team = 1;
+        public int team = 1;
         public int Team { get => team; set { team = value; } }
 
         public int health = 100; // privremeno public za testiranje
@@ -16,11 +16,22 @@ namespace PavleM.RDI.RTS
         public TroopMovement movement;
         public HealthBar healthBar;
 
+        public bool isFighting = false;
+        public AudioSource deathSound;
+
         private void Start()
         {
             movement = new TroopMovement(transform, GetComponent<NavMeshAgent>());
             
             healthBar = GetComponent<HealthBar>();
+        }
+
+        private void Update()
+        {
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
+            }
         }
 
         public void OnSelect() { healthBar.Show(); }
