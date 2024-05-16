@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 namespace PavleM.RDI.RTS // za obrisati
 {

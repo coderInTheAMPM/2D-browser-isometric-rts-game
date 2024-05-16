@@ -1,6 +1,3 @@
-using System.Collections;
-using UnityEngine;
-
 namespace PavleM.RDI.RTS
 {
     public class Granary : Building

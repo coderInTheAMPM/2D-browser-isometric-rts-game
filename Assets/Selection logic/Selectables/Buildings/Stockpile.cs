@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace PavleM.RDI.RTS
 {
     public class Stockpile : Building
