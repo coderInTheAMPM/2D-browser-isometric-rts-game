@@ -20,6 +20,8 @@ namespace PavleM.RDI.RTS
         public bool isFighting = false;
         public AudioSource deathSound;
 
+        public bool isSpecialTroop = false;
+
         private void Start()
         {
             if (TryGetComponent<NavMeshAgent>(out NavMeshAgent agent))

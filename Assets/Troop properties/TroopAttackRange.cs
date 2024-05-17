@@ -52,9 +52,14 @@ namespace PavleM.RDI.RTS
 
                 if (timer > 2)
                 {
-                    targetInfo.health -= 5;
                     timer = 0;
 
+                    if (!thisTroopComponent.isSpecialTroop && targetInfo.isSpecialTroop)
+                        return;
+                    // Specijalnim trupama mogu raditi damage samo druge specijalne trupe
+
+                    targetInfo.health -= 5;
+                    
                     if(targetInfo.health <= 0)
                     {
                         swingingSounds.Stop();
