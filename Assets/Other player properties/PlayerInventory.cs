@@ -18,5 +18,26 @@ namespace PavleM.RDI.RTS
         public int maces;
 
         public int wood;
+
+        private int cheatAmount = 0;
+        public AudioSource goldAudio;
+        public AudioSource surpriseAudio;
+        public GameObject surpriseEnemies;
+        public void IncreaseGold(int amount)
+        {
+            cheatAmount++;
+
+            if(cheatAmount < 5)
+            {
+                goldAudio.Play();
+                gold += amount;
+            }
+            else if(cheatAmount == 5)
+            {
+                surpriseEnemies.SetActive(true);
+                surpriseAudio.Play();
+            }
+            // >5 -> nista
+        }
     }
 }
