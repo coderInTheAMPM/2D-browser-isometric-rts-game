@@ -19,12 +19,12 @@ namespace PavleM.RDI.RTS
 
         public Transform spawnedTroopsContainer;
 
+        public GameObject altar;
+
         float spawnTimer = 0;
 
         private void Update()
         {
-            level2started = true;//temp
-
             if (chillingTroops.transform.childCount == 0)
                 level2started = true;
 
@@ -35,7 +35,7 @@ namespace PavleM.RDI.RTS
                 enemyBossDestroyed = true;
 
             if (enemyHutDestroyed && enemyBossDestroyed)
-                Debug.Log("brawo");
+                altar.SetActive(true);
 
             if (level2started && !enemyHutDestroyed)
                 HandleSpawnLogic();
