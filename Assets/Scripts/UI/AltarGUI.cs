@@ -39,7 +39,7 @@ namespace PavleM.RDI.RTS
             }
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             currentAmountOfGoldInfo.text = PlayerInventory.instance.gold.ToString();
         }

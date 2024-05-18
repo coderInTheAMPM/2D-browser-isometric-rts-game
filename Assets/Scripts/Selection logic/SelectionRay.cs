@@ -13,7 +13,7 @@ namespace PavleM.RDI.RTS
         {
             var mouseClickPositionScreenXY = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
-            var ray = Camera.main.ScreenPointToRay(mouseClickPositionScreenXY);
+            var ray = CameraSelection.playerCamera.ScreenPointToRay(mouseClickPositionScreenXY);
 
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, selectableLayerMask))
             {

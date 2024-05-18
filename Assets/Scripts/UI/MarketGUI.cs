@@ -39,7 +39,7 @@ namespace PavleM.RDI.RTS
             sellWoodButton.onClick.AddListener(TrySellWood);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             goldAmountInfoText.text = PlayerInventory.instance.gold.ToString();
             woodAmountInfoText.text = PlayerInventory.instance.wood.ToString();

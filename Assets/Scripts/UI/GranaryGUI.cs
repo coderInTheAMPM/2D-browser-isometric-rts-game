@@ -15,7 +15,7 @@ namespace PavleM.RDI.RTS
         {
             foodAmountText.text = PlayerInventory.instance.food.ToString();
 
-            timer += Time.deltaTime;
+            timer += Time.fixedDeltaTime;
 
             if(timer > 5)
             {

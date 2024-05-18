@@ -42,9 +42,11 @@ namespace PavleM.RDI.RTS
             secretBuyMenu.SetActive(true);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            if (beholder == null)
+            if (beholder != null)
+                return;
+            else
                 secretButton.gameObject.SetActive(true);
 
             if (PlayerInventory.instance.gold < 500)

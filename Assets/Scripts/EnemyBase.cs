@@ -23,7 +23,7 @@ namespace PavleM.RDI.RTS
 
         float spawnTimer = 0;
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (chillingTroops.transform.childCount == 0)
                 level2started = true;

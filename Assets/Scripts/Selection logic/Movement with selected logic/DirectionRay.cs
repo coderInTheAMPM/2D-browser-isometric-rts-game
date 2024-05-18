@@ -38,7 +38,7 @@ namespace PavleM.RDI.RTS
 
             var mouseClickPositionScreenXY = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
-            var mouseClickPositionWorld = Camera.main.ScreenToWorldPoint(mouseClickPositionScreenXY);
+            var mouseClickPositionWorld = CameraSelection.playerCamera.ScreenToWorldPoint(mouseClickPositionScreenXY);
             mouseClickPositionWorld.z = 0;
 
             return mouseClickPositionWorld;
