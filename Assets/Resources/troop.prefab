@@ -138,7 +138,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.300255, y: 6.379556, z: 2.5221205}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1084655530562237215}
@@ -196,9 +196,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   health: 100
+  damage: 5
   healthBar: {fileID: 0}
   isFighting: 0
   deathSound: {fileID: 6122427718703663882}
+  isSpecialTroop: 0
 --- !u!136 &6068434968701881678
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -539,8 +541,8 @@ Transform:
   m_GameObject: {fileID: 8960569694717380305}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.75, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.5}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 267140253808696222}
@@ -586,7 +588,7 @@ SpriteRenderer:
   m_SortingLayerID: -453406085
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2a6d5fb4f993ce843a20f58bf9e11130, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0688c09ef0c01c4c87ddb2fba907b30, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
