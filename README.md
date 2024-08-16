@@ -1,0 +1,1 @@
+This shit needs to be tidied up. Next time bundle both the website frontend code and the game code itself in the same repo. I deleted the other repo with the cloud integrations cause it was messy all around.
